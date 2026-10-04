@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Apology Website Logic - Sincere, Polite & Grounded
+   Apology Website Logic - Sincere, Polite & Grounded for Sanu
    ========================================================================== */
 
 // --- 3 Chapters Data ---
@@ -177,7 +177,7 @@ function handleForgiveLater() {
   }
 }
 
-// --- Subtle Ambient Canvas (Soft floating dust motes) ---
+// --- Ambient Canvas (Soft floating particles) ---
 const canvas = document.getElementById('ambient-canvas');
 const ctx = canvas ? canvas.getContext('2d') : null;
 let particles = [];
@@ -221,7 +221,7 @@ class AmbientParticle {
     ctx.save();
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(168, 140, 150, ${this.opacity})`;
+    ctx.fillStyle = `rgba(179, 84, 103, ${this.opacity})`;
     ctx.fill();
     ctx.restore();
   }
@@ -242,3 +242,88 @@ function animateParticles() {
 }
 
 animateParticles();
+
+// --- Calming Soft Melody Synthesizer (Web Audio API) ---
+let audioCtx = null;
+let isPlayingMelody = false;
+let melodyInterval = null;
+
+const chords = [
+  [261.63, 329.63, 392.00, 493.88], // Cmaj7
+  [220.00, 261.63, 329.63, 392.00], // Am7
+  [174.61, 220.00, 261.63, 329.63], // Fmaj7
+  [196.00, 246.94, 293.66, 392.00]  // G7
+];
+let chordIndex = 0;
+
+function playTone(freq, duration = 2.4) {
+  if (!audioCtx) return;
+  try {
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+
+    gain.gain.setValueAtTime(0, audioCtx.currentTime);
+    gain.gain.linearRampToValueAtTime(0.04, audioCtx.currentTime + 0.3);
+    gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
+
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+
+    osc.start();
+    osc.stop(audioCtx.currentTime + duration);
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+function playChordArpeggio() {
+  const currentChord = chords[chordIndex];
+  currentChord.forEach((note, idx) => {
+    setTimeout(() => {
+      if (isPlayingMelody) playTone(note, 2.8);
+    }, idx * 460);
+  });
+  chordIndex = (chordIndex + 1) % chords.length;
+}
+
+function toggleMelody() {
+  if (!audioCtx) {
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  }
+  if (audioCtx.state === 'suspended') {
+    audioCtx.resume();
+  }
+
+  const heroBtn = document.getElementById('heroMelodyBtn');
+  const floatBtn = document.getElementById('floatingMusicBtn');
+  const bubbleIcon = document.getElementById('bubbleIcon');
+  const bubbleText = document.getElementById('bubbleText');
+
+  if (!isPlayingMelody) {
+    isPlayingMelody = true;
+    if (heroBtn) heroBtn.classList.add('playing');
+    if (floatBtn) floatBtn.classList.add('playing');
+    if (bubbleIcon) bubbleIcon.textContent = "🎶";
+    if (bubbleText) bubbleText.textContent = "Playing calming melody...";
+
+    playChordArpeggio();
+    melodyInterval = setInterval(playChordArpeggio, 2800);
+  } else {
+    isPlayingMelody = false;
+    if (heroBtn) heroBtn.classList.remove('playing');
+    if (floatBtn) floatBtn.classList.remove('playing');
+    if (bubbleIcon) bubbleIcon.textContent = "🎵";
+    if (bubbleText) bubbleText.textContent = "Play calming melody while reading";
+
+    clearInterval(melodyInterval);
+  }
+}
+
+// Attach event listeners
+const floatingMusicBtn = document.getElementById('floatingMusicBtn');
+if (floatingMusicBtn) {
+  floatingMusicBtn.addEventListener('click', toggleMelody);
+}

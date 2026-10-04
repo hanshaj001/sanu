@@ -72,6 +72,50 @@ body {
   border-radius: 0 2px 2px 0;
 }
 
+/* Floating Music Bubble (Top Right) */
+.floating-music-bubble {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(10px);
+  padding: 8px 16px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  z-index: 100;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: var(--transition-smooth);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.floating-music-bubble:hover {
+  transform: translateY(-2px);
+  color: var(--accent-deep);
+  border-color: var(--accent-deep);
+}
+
+.floating-music-bubble.playing {
+  background: #fbf0f2;
+  border-color: var(--accent-deep);
+  color: var(--accent-deep);
+}
+
+.floating-music-bubble.playing .music-note-icon {
+  animation: noteRotate 2s infinite ease-in-out;
+}
+
+@keyframes noteRotate {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.15) rotate(12deg); }
+}
+
 /* Container */
 .container {
   width: 90%;
@@ -83,7 +127,7 @@ body {
 
 /* Hero Section */
 .hero-section {
-  min-height: 75vh;
+  min-height: 82vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -127,8 +171,76 @@ body {
   font-size: clamp(1rem, 2.2vw, 1.15rem);
   color: var(--text-muted);
   max-width: 540px;
-  margin: 0 auto 36px;
+  margin: 0 auto 32px;
   line-height: 1.7;
+}
+
+/* Prominent Hero Melody Bubble */
+.melody-bubble-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 38px;
+}
+
+.melody-bubble-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #ffffff 0%, #faf3f5 100%);
+  border: 1.5px solid rgba(179, 84, 103, 0.35);
+  padding: 13px 26px;
+  border-radius: 999px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--accent-deep);
+  cursor: pointer;
+  box-shadow: 0 8px 24px -4px rgba(179, 84, 103, 0.18);
+  transition: var(--transition-smooth);
+}
+
+.melody-bubble-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 12px 28px -4px rgba(179, 84, 103, 0.28);
+  border-color: var(--accent-deep);
+}
+
+.melody-bubble-btn.playing {
+  background: linear-gradient(135deg, #b35467 0%, #9c4556 100%);
+  color: #ffffff;
+  border-color: #9c4556;
+}
+
+.melody-bubble-icon {
+  font-size: 1.15rem;
+}
+
+.pulse-ring {
+  position: absolute;
+  inset: -6px;
+  border: 2px solid rgba(179, 84, 103, 0.35);
+  border-radius: 999px;
+  animation: pulseRingAnim 2.4s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+  pointer-events: none;
+}
+
+.melody-bubble-btn.playing .pulse-ring {
+  border-color: rgba(179, 84, 103, 0.5);
+  animation-duration: 1.8s;
+}
+
+@keyframes pulseRingAnim {
+  0% { transform: scale(0.96); opacity: 0.9; }
+  100% { transform: scale(1.18); opacity: 0; }
+}
+
+.melody-hint {
+  font-size: 0.78rem;
+  color: #998a90;
+  letter-spacing: 0.02em;
 }
 
 .scroll-cue {
@@ -483,6 +595,11 @@ body {
 
   .card-box {
     padding: 26px 20px;
+  }
+
+  .melody-bubble-btn {
+    padding: 11px 20px;
+    font-size: 0.86rem;
   }
 
   .scroll-toast {
