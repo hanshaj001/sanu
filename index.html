@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I'm Truly Sorry, Sanu ❤️</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient Canvas for Floating Petals and Sparkles -->
+  <canvas id="ambient-canvas"></canvas>
+
+  <!-- Progress Bar -->
+  <div class="scroll-progress-container">
+    <div class="scroll-progress-bar" id="progressBar"></div>
+  </div>
+
+  <!-- Music Toggle Floating Button -->
+  <button id="musicToggle" class="music-toggle-btn" aria-label="Toggle Soft Melody" title="Play / Pause Melodic Ambiance">
+    <span class="music-icon" id="musicIcon">🎵</span>
+    <span class="music-text">Soft Melody</span>
+  </button>
+
+  <!-- Hero Section -->
+  <header class="hero-section">
+    <div class="hero-glow"></div>
+    <div class="container hero-content">
+      <div class="badge-pill">A message straight from the heart</div>
+      <h1 class="hero-title">I am so sorry, <span class="highlight-name">Sanu</span></h1>
+      <p class="hero-subtitle">
+        "Kasto naramro lagiraxa aailey... bihana dekhi tei sochiraxu kina bhaneko hola timilai tyesto..."
+      </p>
+      <div class="scroll-cue">
+        <span>Scroll gently to read my thoughts</span>
+        <div class="mouse-icon">
+          <div class="wheel"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Wrapper -->
+  <main class="content-wrapper">
+
+    <!-- Section 1: The Heavy Heart -->
+    <section class="story-section" data-popup-id="popup-1" data-trigger-title="A Thought Kept Me Awake" data-trigger-msg="Bihana dekhi eakdamai naramro lagiraxa...">
+      <div class="container">
+        <div class="card-box glass-card" onclick="openApologyModal(1)">
+          <div class="card-tag">Chapter 01 &bull; The Weight in My Chest</div>
+          <h2 class="card-title font-serif">Kasto Regret Bhairaxa...</h2>
+          <p class="card-preview">
+            Maile k k bhane timilai... ani pachi aayera kasto guilt ani sorrow feel bhairaxa.
+            Aaja bihana dekhi euta kura bahek ma kehi sochnai sakirako xaina.
+          </p>
+          <div class="card-action">
+            <span class="pulse-dot"></span>
+            <span class="action-label">Tap to read what's in my heart 💌</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Can't Bear Your Tears -->
+    <section class="story-section" data-popup-id="popup-2" data-trigger-title="Your Tears Break Me" data-trigger-msg="Mero karan timi roko... kasari sahane maile tyo?">
+      <div class="container">
+        <div class="card-box glass-card accent-card" onclick="openApologyModal(2)">
+          <div class="card-tag">Chapter 02 &bull; What Hurts Most</div>
+          <h2 class="card-title font-serif">Seeing You Hurt Breaks Me</h2>
+          <p class="card-preview">
+            Mero karan timi roko malai manai pardaina. Malai kasari sahane hola tyo feeling...
+            Timro aansu ko karan ma bannu mero sabai bhanda thulo galti ho.
+          </p>
+          <div class="card-action">
+            <span class="pulse-dot"></span>
+            <span class="action-label">Tap to open this apology 🌸</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Lost In Guilt -->
+    <section class="story-section" data-popup-id="popup-3" data-trigger-title="I Spoke Too Much" data-trigger-msg="Maile chahekai thiyina testo garauna lai...">
+      <div class="container">
+        <div class="card-box glass-card" onclick="openApologyModal(3)">
+          <div class="card-tag">Chapter 03 &bull; An Honest Admission</div>
+          <h2 class="card-title font-serif">Ma Concentrate Garnai Sakirako Xaina</h2>
+          <p class="card-preview">
+            Timile bhanyeu tyo kura haru, malai kasto naramro lagyo. K garu k garu bhairaxa bihan dekhi.
+            Maile dherai bole, jun maile bolnu hudaina thiyo...
+          </p>
+          <div class="card-action">
+            <span class="pulse-dot"></span>
+            <span class="action-label">Tap to see my promise 🕯️</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: What You Mean To Me -->
+    <section class="story-section" data-popup-id="popup-4" data-trigger-title="A Deep Note for Sanu" data-trigger-msg="Every single smile of yours means the world to me.">
+      <div class="container">
+        <div class="letter-container glass-card">
+          <div class="letter-header">
+            <span class="letter-badge">A Heartfelt Letter</span>
+            <h2 class="letter-title font-script">Pyari Sanu,</h2>
+          </div>
+          <div class="letter-body font-serif">
+            <p>
+              I never wanted to cause you a single drop of sadness. 
+              Galti ma bata bhayo, maile aafno words haru sambhalna sakina. 
+              Timi hurt bhayera royeko kura le malai bhitra bata tutayeko xa.
+            </p>
+            <p>
+              If the reason for your pain is me, nothing hurts more in this world. 
+              Please believe me when I say I deeply value you, your feelings, and your presence in my life.
+            </p>
+            <p class="letter-closing">
+              I am genuinely, deeply sorry, Sanu. 🤍
+            </p>
+          </div>
+          <div class="letter-footer">
+            <button class="aesthetic-btn secondary" onclick="openApologyModal(4)">
+              <span>Read Full Apology Letter</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Interactive Forgiveness -->
+    <section class="forgiveness-section" id="forgiveSection">
+      <div class="container">
+        <div class="forgive-box glass-card">
+          <div class="heart-pulse-icon">🤍</div>
+          <h2 class="font-serif forgive-heading">Can you forgive me, Sanu?</h2>
+          <p class="forgive-subtext">
+            Ekchoti maafi deu na please... I promise to never repeat this mistake and always cherish you.
+          </p>
+
+          <div class="forgive-buttons">
+            <button id="btnYes" class="aesthetic-btn primary" onclick="handleForgiveYes()">
+              Yes, I forgive you 💕
+            </button>
+            <button id="btnNo" class="aesthetic-btn outline" onmouseenter="dodgeNoButton()" onclick="dodgeNoButton()">
+              Still upset... 🥺
+            </button>
+          </div>
+
+          <div id="forgivenessFeedback" class="forgiveness-feedback hidden"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Scroll-Triggered Floating Notification Toast -->
+  <div id="scrollToast" class="scroll-toast hidden" onclick="triggerToastModal()">
+    <div class="toast-avatar">💌</div>
+    <div class="toast-content">
+      <div class="toast-title" id="toastTitle">Message for Sanu</div>
+      <div class="toast-desc" id="toastDesc">Tap here to view the hidden words...</div>
+    </div>
+    <span class="toast-close" onclick="event.stopPropagation(); closeToast();">&times;</span>
+  </div>
+
+  <!-- Reusable Aesthetic Modal for Apologies -->
+  <div id="apologyModal" class="modal-backdrop hidden" onclick="closeApologyModal(event)">
+    <div class="modal-dialog glass-card" onclick="event.stopPropagation()">
+      <button class="modal-close-btn" onclick="closeApologyModal()">&times;</button>
+      <div class="modal-icon" id="modalIcon">💌</div>
+      <div class="modal-tag" id="modalTag">CONFESSION</div>
+      <h3 class="modal-title font-serif" id="modalTitle">Sorry Haii Sanu</h3>
+      <div class="modal-text font-serif" id="modalContent"></div>
+      <div class="modal-footer">
+        <button class="aesthetic-btn primary modal-confirm-btn" onclick="closeApologyModal()">
+          I Hear You 🤍
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="aesthetic-footer">
+    <p>Made with sincere regret, honesty, and care &bull; For Sanu</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
