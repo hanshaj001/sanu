@@ -135,7 +135,32 @@ function closeApologyModal(e) {
   }
 }
 
-// --- Respectful Clear-The-Air Handlers ---
+// --- Interactive Still Upset / Forgiveness Handlers ---
+let dodgeCount = 0;
+const dodgePhrases = [
+  "Ekchoti maafi deu na please... 🥺",
+  "Sachai galti bhayo Sanu...",
+  "Aaba dekhi testo kura kaile nikalina...",
+  "Herana ma kati regret gardaixu...",
+  "Galti realize bhairaxa malai...",
+  "Take your time, tara please consider na... 🥺"
+];
+
+function dodgeStillUpset() {
+  const btnNo = document.getElementById('btnNo');
+  if (!btnNo) return;
+
+  dodgeCount++;
+  const phraseIndex = (dodgeCount - 1) % dodgePhrases.length;
+  btnNo.textContent = dodgePhrases[phraseIndex];
+
+  // Gentle playful displacement on hover/click
+  const randomX = (Math.random() - 0.5) * 140;
+  const randomY = (Math.random() - 0.5) * 60;
+  btnNo.style.transform = `translate(${randomX}px, ${randomY}px)`;
+  btnNo.style.transition = 'transform 0.25s ease';
+}
+
 function handleForgiveYes() {
   const feedback = document.getElementById('forgivenessFeedback');
   const btnYes = document.getElementById('btnYes');
@@ -143,37 +168,18 @@ function handleForgiveYes() {
 
   if (btnNo) btnNo.style.display = 'none';
   if (btnYes) {
-    btnYes.disabled = true;
-    btnYes.style.opacity = '0.9';
-    btnYes.textContent = "Thank you, Sanu";
+    btnYes.style.transform = 'scale(1.05)';
+    btnYes.textContent = "Thank you, Sanu 🤍";
   }
 
   if (feedback) {
     feedback.classList.remove('hidden');
     feedback.innerHTML = `
-      <h3>Thank you, Sanu.</h3>
+      <h3>Thank you, Sanu. 🤍</h3>
       <p>
-        I genuinely appreciate your understanding. I will be much more mindful and careful about what I say going forward.
-      </p>
-    `;
-  }
-}
-
-function handleForgiveLater() {
-  const feedback = document.getElementById('forgivenessFeedback');
-  const btnNo = document.getElementById('btnNo');
-
-  if (btnNo) {
-    btnNo.disabled = true;
-    btnNo.textContent = "Understood";
-  }
-
-  if (feedback) {
-    feedback.classList.remove('hidden');
-    feedback.innerHTML = `
-      <h3>Take your time.</h3>
-      <p>
-        I completely understand and respect your space. I just wanted you to know that it was never intentional and that I am truly sorry.
+        Timro understanding mero lagi dherai important xa.
+        <br><br>
+        Maile bolnu agadi sochnu parne thiyo. Aaba dekhi ma aafno words ma dhyan rakhxu ani kaile testo kura repeat gardina.
       </p>
     `;
   }

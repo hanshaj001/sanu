@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Ambient Subtle Dust Canvas -->
+  <!-- Ambient Dust Canvas -->
   <canvas id="ambient-canvas"></canvas>
 
   <!-- Scroll Progress Bar -->
@@ -18,7 +18,7 @@
     <div class="scroll-progress-bar" id="progressBar"></div>
   </div>
 
-  <!-- Persistent Floating Music Bubble (Top Right) -->
+  <!-- Persistent Floating Music Bubble -->
   <button id="floatingMusicBtn" class="floating-music-bubble" title="Toggle Soft Melody" aria-label="Toggle Soft Melody">
     <span class="music-note-icon">🎵</span>
     <span class="music-label">Melody</span>
@@ -33,7 +33,7 @@
         "Kasto naramro lagiraxa aailey... bihana dekhi tei sochiraxu, kina bhaneko hola timilai tyesto..."
       </p>
 
-      <!-- Melody Bubble before reading -->
+      <!-- Prominent Melody Bubble before reading -->
       <div class="melody-bubble-wrapper">
         <button id="heroMelodyBtn" class="melody-bubble-btn" onclick="toggleMelody()">
           <span class="melody-bubble-icon" id="bubbleIcon">🎵</span>
@@ -119,7 +119,7 @@
             <button id="btnYes" class="aesthetic-btn primary" onclick="handleForgiveYes()">
               It's okay, I understand
             </button>
-            <button id="btnNo" class="aesthetic-btn outline" onclick="handleForgiveLater()">
+            <button id="btnNo" class="aesthetic-btn outline" onmouseenter="dodgeStillUpset()" onclick="dodgeStillUpset()">
               Still need some time
             </button>
           </div>
